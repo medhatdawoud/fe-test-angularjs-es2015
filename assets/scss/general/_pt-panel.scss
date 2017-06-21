@@ -1,0 +1,30 @@
+.pt-panel {
+    border:none;
+    border-radius: 0px;
+    box-shadow: 0px 0px 15px #777;
+
+    .panel-heading {
+        border-radius: 0px;
+        color: $pt-color-white;
+        text-align: center;
+        background-color: $pt-color-second;
+        line-height: 30px;
+        color: #eee;
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            position: absolute;
+            left: 30px;
+            top: 15px;
+        }
+    }
+
+    .panel-body {
+        border-radius: 0px;
+    }
+}

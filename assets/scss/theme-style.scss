@@ -1,0 +1,23 @@
+@import "compass/reset";
+
+@import "helpers/variables";
+
+@import "general/layout";
+@import "general/pt-panel";
+@import "general/forms";
+@import "general/modals";
+
+@import "components/pt-navbar";
+@import "components/pt-transfer-form";
+@import "components/pt-transactions-list";
+
+body {
+    background-image: url(#{$pt-root-images-dir}/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}

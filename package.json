@@ -1,0 +1,21 @@
+{
+  "name": "fe-test",
+  "version": "1.0.0",
+  "description": "frontend test benchmark",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "author": "Medhat Dawoud",
+  "license": "ISC",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.3",
+    "angular": "^1.6.4",
+    "angular-sanitize": "^1.6.4",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  }
+}

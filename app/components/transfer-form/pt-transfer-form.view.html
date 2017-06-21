@@ -1,0 +1,50 @@
+<div class="panel pt-panel pt-transfer-form">
+    <div class="panel-heading">
+        <span class="icon icon-arrows"></span> Make a Transfer
+    </div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label>From Account</label>
+                <input placeholder="Free checking(4692) - Available {{model.fullBalance | currency}}" class="form-control" type="text" disabled/>
+            </div>
+            <div class="form-group">
+                <label>To Account</label>
+                <input ng-model="model.trans.merchant" placeholder="Georgia Power Electric Company" class="form-control" type="text" />
+            </div>
+            <div class="form-group">
+                <label>Amount</label>
+                <input ng-model="model.trans.amount" placeholder="$ 0.00" class="form-control" type="number" />
+            </div>
+            <div class="form-group text-center">
+                <button data-toggle="modal" data-target="#transfer-preview-modal" class="btn btn-primary" ng-disabled="(!model.trans.amount || !model.trans.merchant)">submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="transfer-preview-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Transfer Preview</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>From</label>
+                    <div class="form-control-static">Free checking (4692)</div>
+                </div>
+                <div class="form-group">
+                    <label>to</label>
+                    <div class="form-control-static">{{model.trans.merchant}}</div>
+                </div>
+                <div class="form-group">
+                    <label>amount</label>
+                    <div class="form-control-static">{{model.trans.amount | number:2 | currency}}</div>
+                </div>
+                <button type="button" class="btn btn-block btn-primary" data-dismiss="modal" ng-click="model.add()">Transfer</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="panel pt-panel pt-transactions-list">
+    <div class="panel-heading">
+        <span class="icon icon-briefcase"></span> Recent Transactions
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group filtering">
+                    <input class="form-control" ng-model="model.filter" placeholder="Type something to search" />
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group sorting text-right">
+                    Sort By:
+                    <div class="btn-group">
+                        <label class="btn btn-default" ng-class="{'active': model.sorting == 'transactionDate'}">
+                                            <input type="radio" name="options" ng-model="model.sorting" value="transactionDate" /> Date
+                                        </label>
+                        <label class="btn btn-default" ng-class="{'active': model.sorting == 'merchant'}">
+                                            <input type="radio" name="options" ng-model="model.sorting" value="merchant" /> Merchant
+                                        </label>
+                        <label class="btn btn-default" ng-class="{'active': model.sorting == 'amount'}">
+                                            <input type="radio" name="options" ng-model="model.sorting" value="amount" /> Amount
+                                        </label>
+                    </div>
+
+                    <div class="btn-group">
+                        <label class="btn btn-default" title="asc" ng-class="{'active': model.sortingOrder == 'asc'}">
+                                            <input type="radio" name="options" ng-model="model.sortingOrder" value="asc" />
+                                            <i class="glyphicon glyphicon-sort-by-attributes"></i>
+                                        </label>
+                        <label class="btn btn-default" title="desc" ng-class="{'active': model.sortingOrder == 'desc'}">
+                                            <input type="radio" name="options" ng-model="model.sortingOrder" value="desc" />
+                                            <i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
+                                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-repeat="t in model.transactions | filter:{merchant : model.filter} | orderBy:model.sorting:model.sortingOrder=='desc'"
+            class="row transaction-item" style="border-left:8px solid {{t.categoryCode}}">
+            <div class="col-sm-2 date">{{t.transactionDate | date:'MMM. dd'}}</div>
+            <div class="col-sm-1 icon">
+                <img ng-src="{{t.merchantLogo}}" />
+            </div>
+            <div class="col-sm-6 desc">
+                <h5>{{t.merchant}}</h5>
+                <p>{{t.transactionType}}</p>
+            </div>
+            <div class="col-sm-3 amount">{{"-$"}}{{t.amount | number:2}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+.pt-panel {
+    &.pt-transfer-form {
+        .panel-heading {
+            .icon {
+                &.icon-arrows {
+                    background-image: url(#{$pt-root-images-dir}/arrows.png);
+                }
+            }
+        }
+
+        .btn {
+            &.btn-primary {
+                padding-right: 50px;
+                padding-left: 50px;
+            }
+        }
+    }
+}

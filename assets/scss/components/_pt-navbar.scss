@@ -1,0 +1,12 @@
+.peachtree-navbar {
+    background: $pt-color-white;
+    border-bottom: 2px solid $pt-color-first;
+
+    .navbar-brand {
+        height: 55px;
+
+        img {
+            height: 100%;
+        }
+    }
+}
