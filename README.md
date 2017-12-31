@@ -1,21 +1,21 @@
-Consumed time to finish this test was about: 9:00 hours
-
-# Peachtree FE test for Backbase #
+# Peachtree System - Frontend Sample #
 
 ### what technologies that i used ? ###
 
-* AngularJS v1.6.4 - as a frontend framework.
+* Babel for supporting the ES2015 modules.
+* AngularJS v1.6.8 - as a frontend framework.
 * Angular UI Router - to facilitate routing and for its features.
 * HTML5/CSS3 - for sure they are used for views UI creating and styling.
 * Twitter Bootstrap - as UI framework.
 * SASS - as CSS preprocessor.
+* Webpack - as a bundler for all the js files.
 * Lite-server - Just to facilate running in the development environment.
 
 ### What is the pattern and the archeticture that i used ? ###
 
-* I've applied the IIFE pattern in all my files to isolate contexts.
-* I've created a custom component for each segment in code that might be reusable later.
-* I've applied components of angular 1.6 instead of directives old style.
+* I've applied the ES2015 modules pattern in all my files.
+* I've created a custom component for each segment in code that might be reusable later, each component is a separated module.
+* the main module include all the components as module in dependancies.
 
 ### Setup prerequists ###
 
