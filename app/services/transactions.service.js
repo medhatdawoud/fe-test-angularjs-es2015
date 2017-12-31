@@ -1,28 +1,26 @@
-'use strict';
+import angular from 'angular';
 
-(function () {
-    angular
-        .module('peachtreeBank')
-        .service('TransactionsService', TransactionsService);
+class TransactionsService {
+  constructor($http) {
+    this.$http = $http;
+    this.transactions = [];
+  }
 
-    TransactionsService.$inject = ['$http'];
+  addTransaction(transaction) {
+    this.transactions.push(transaction);
+  }
 
-    function TransactionsService($http) {
-        var service = {};
+  getTransactions() {
+    return this.$http.get('transactions.json')
+      .then((response) => {
+        this.transactions = response.data.data;
+        return this.transactions;
+      });
+  }
+}
 
-        service.transactions = [];
+TransactionsService.$inject = ['$http'];
 
-        service.addTransaction = function (transaction) {
-            service.transactions.push(transaction);
-        }
-
-        service.getTransactions = function () {
-            return $http.get('transactions.json')
-                .then(function (response) {
-                    return service.transactions = response.data.data;
-                });
-        }
-
-        return service;
-    }
-})();
+export default angular.module('TransactionsServiceModule', [])
+  .service('TransactionsService', TransactionsService)
+  .name;

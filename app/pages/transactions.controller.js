@@ -1,20 +1,14 @@
-'use strict';
+class TransactionsController {
+  constructor(transactionsService) {
+    this.transactionsService = transactionsService;
+    this.transactions = [];
+    this.transactionsService.getTransactions()
+      .then((data) => {
+        this.transactions = data;
+      });
+  }
+}
 
-(function () {
-    angular
-        .module('peachtreeBank')
-        .controller('TransactionsCtrl', TransactionsController);
+TransactionsController.$inject = ['TransactionsService'];
 
-    TransactionsController.$inject = ['$state', 'TransactionsService'];
-
-    function TransactionsController($state, TransactionsService) {
-        var vm = this;
-
-        vm.transactions = [];
-
-        TransactionsService.getTransactions().then(function(data){
-            vm.transactions = data;
-        });
-
-    }
-})();
+export default TransactionsController;

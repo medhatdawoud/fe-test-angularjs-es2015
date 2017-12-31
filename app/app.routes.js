@@ -1,15 +1,14 @@
-'use strict';
+function routes(urlRouterProvider, stateProvider) {
+  urlRouterProvider.otherwise('/');
+  stateProvider
+    .state('transactions', {
+      url: '/',
+      templateUrl: 'app/pages/transactions.view.html',
+      controller: 'TransactionsController',
+      controllerAs: '$ctrl',
+    });
+}
 
-(function () {
-    angular.module('peachtreeBank').config(["$stateProvider", "$urlRouterProvider",
-        function ($stateProvider, $urlRouterProvider) {
-            $urlRouterProvider.otherwise('/');
-            $stateProvider
-                .state('transactions', {
-                    url: '/',
-                    templateUrl: 'app/pages/transactions.view.html',
-                    controller: 'TransactionsCtrl',
-                    controllerAs: 'vm'
-                })
-        }]);
-})();
+routes.$inject = ['$urlRouterProvider', '$stateProvider'];
+
+export default routes;

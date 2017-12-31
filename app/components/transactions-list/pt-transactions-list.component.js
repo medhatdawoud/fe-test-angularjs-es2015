@@ -1,19 +1,21 @@
-'use strict';
+import angular from 'angular';
 
-(function () {
-    angular
-        .module('peachtreeBank')
-        .component('ptTransactionsList', {
-            templateUrl: "app/components/transactions-list/pt-transactions-list.view.html",
-            bindings: {
-                transactions: "=",
-            },
-            controllerAs: "model",
-            controller: function () {
-                var model = this;
+class TransactionsCtrl {
+  constructor() {
+    this.sorting = 'transactionDate';
+    this.sortingOrder = 'desc';
+  }
+}
 
-                model.sorting = 'transactionDate';
-                model.sortingOrder = 'desc';
-            }
-        });
-})();
+const TransactionsListComponent = {
+  bindings: {
+    transactions: '=',
+  },
+  templateUrl: 'app/components/transactions-list/pt-transactions-list.view.html',
+  controller: TransactionsCtrl,
+  controllerAs: '$ctrl',
+};
+
+export default angular.module('TransactionsListComponent', [])
+  .component('ptTransactionsList', TransactionsListComponent)
+  .name;
