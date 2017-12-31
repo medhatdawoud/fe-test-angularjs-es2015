@@ -1,4 +1,4 @@
-import angular from 'angular';
+import angular from "angular"
 
 class TransactionsService {
   constructor($http) {
@@ -11,7 +11,7 @@ class TransactionsService {
   }
 
   getTransactions() {
-    return this.$http.get('transactions.json')
+    return this.$http.get("transactions.json")
       .then((response) => {
         this.transactions = response.data.data;
         return this.transactions;
@@ -19,8 +19,8 @@ class TransactionsService {
   }
 }
 
-TransactionsService.$inject = ['$http'];
+TransactionsService.$inject = ["$http"];
 
-export default angular.module('TransactionsServiceModule', [])
-  .service('TransactionsService', TransactionsService)
+export default angular.module("TransactionsServiceModule", [])
+  .service("TransactionsService", TransactionsService)
   .name;

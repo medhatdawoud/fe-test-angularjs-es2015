@@ -9,6 +9,6 @@ class TransactionsController {
   }
 }
 
-TransactionsController.$inject = ['TransactionsService'];
+TransactionsController.$inject = ["TransactionsService"]
 
 export default TransactionsController;
